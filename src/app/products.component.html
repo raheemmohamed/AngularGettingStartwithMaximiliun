@@ -1,0 +1,13 @@
+<h1>{{Title}}</h1>
+
+<!-- submit as form-->
+<form (ngSubmit)="onSubmitfun()" [formGroup]="FormReactiveApproch">
+    <div>
+        <!--ngModel use for Two way binding-->
+        <input class="input-class" formControlName="productName">
+        <button type="submit" >Submit</button>
+
+        <!--this is how reuse a component in Angular [PorductNameInput] is a Input in product component ts-->
+        <app-product *ngFor="let product of productsData" (productOutput)='removedProd(product)'  [ProductNameInput]="product"></app-product>
+    </div>
+</form>
